@@ -54,8 +54,10 @@
 44. Delete the users details on clicking Delete Button
 45. Create backend by get user by id 
 46. Creating update page in frontend
-47. Update user details in the backend and database with frontend
-48. 
+47. Update user details in the backend and database
+48. Update user in the frontend
+49. Get contact form every data (frontend+backend)
+50. Delete contact form data from frontend and backend
 
 # Day 8 : Storing Registered User Data in Online Database - MongoDB Atlas
 User Registration Logic

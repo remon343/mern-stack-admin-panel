@@ -36,7 +36,7 @@ const register = async (req, res) => {
 };
 
 //Login Logic
-const login = async (req, res, next) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const userExist = await User.findOne({ email });

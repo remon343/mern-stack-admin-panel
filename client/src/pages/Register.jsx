@@ -23,6 +23,7 @@ const Register = () => {
       ...user,
       [name]: value,
     });
+    console.log(user)
   };
   //Handling Form Submission
   const handleSubmit = async (e) => {
@@ -48,7 +49,7 @@ const Register = () => {
         navigate('/login');
       }
     } catch (err) {
-      toast.error("Register: ", err);
+      toast.error("Register: ", err.message);
     }
   };
   return (
