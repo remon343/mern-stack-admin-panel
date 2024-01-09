@@ -27,7 +27,7 @@ const Admin_Users = () => {
   const deleteUser = async (id) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/admin/users/delete/${id}`,
+        `http://localhost:3000/api/admin/contacts/delete/${id}`,
         {
           method: "DELETE",
           headers: {

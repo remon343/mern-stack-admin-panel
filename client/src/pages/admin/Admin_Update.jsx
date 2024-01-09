@@ -19,7 +19,6 @@ const Admin_Update = () => {
   //get the user on edit button
   const getSingleUserData = async (id) => {
     try {
-      console.log(params);
       const res = await fetch(
         `http://localhost:3000/api/admin/user/${params.id}`,
         {
@@ -55,10 +54,7 @@ const Admin_Update = () => {
       if(!res.ok){
         throw new Error("Cannot update error.Go back and try again");
       }else{
-
         const data = await res.json();
-        console.log(res)
-        console.log(data)
         setProfile({
           username : data.username,
           email : data.email,

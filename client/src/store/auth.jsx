@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
         setUser(data.msg);
       }
     } catch (err) {
-      console.error("Error: ", err.message);
+      toast.error("User Authentication : ", err.message);
     }
   };
     // to fetch services data from the database
@@ -46,7 +47,7 @@ export const AuthProvider = ({ children }) => {
           setService(data);
         }
       }catch(err){
-        console.log(err);
+        toast.error("Services : ",err.message);
       }
     }
   useEffect(() => {

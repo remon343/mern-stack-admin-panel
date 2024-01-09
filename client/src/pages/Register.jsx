@@ -23,7 +23,6 @@ const Register = () => {
       ...user,
       [name]: value,
     });
-    console.log(user)
   };
   //Handling Form Submission
   const handleSubmit = async (e) => {
