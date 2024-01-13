@@ -4,7 +4,7 @@ import { useAuth } from '../../store/auth';
 import {toast} from 'react-toastify';
 
 const Admin_Contact_Update = () => {
-    const {authorization_token} = useAuth(); 
+    const {authorization_token,API} = useAuth(); 
     const params = useParams();
     const [contact, setContact] = useState({
         username : "",
@@ -17,7 +17,7 @@ const Admin_Contact_Update = () => {
     const getSingleContactData = async() =>{
         try{
 
-            const res = await fetch(`http://localhost:3000/api/admin/contact/${params.id}`,{
+            const res = await fetch(`${API}/api/admin/contact/${params.id}`,{
                 method : "GET",
                 headers : {
                     Authorization : authorization_token
@@ -37,7 +37,7 @@ const Admin_Contact_Update = () => {
     const handleSubmit = async(e) =>{
         e.preventDefault();
         try{
-            const res = await fetch(`http://localhost:3000/api/admin/contacts/edit/${params.id}`,{
+            const res = await fetch(`${API}/api/admin/contacts/edit/${params.id}`,{
                 method : 'PUT',
                 headers : {
                     "Content-Type" : "application/json",

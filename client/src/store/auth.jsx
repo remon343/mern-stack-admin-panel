@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [service, setService] = useState([]);
   const authorization_token = `Bearer ${token}`; 
+  const API = import.meta.env.VITE_APP_API;
 
   const storeTokenInLS = (server_token) => {
     setToken(server_token);
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   // JWT Authentication - To get the currently logged in user data
   const userAuthentication = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/auth/user", {
+      const response = await fetch(`${API}/api/auth/user`, {
         method: "GET",
         headers: {
             Authorization: authorization_token,
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     const getServices = async() =>{
       try{
 
-        const response = await fetch(`http://localhost:3000/api/data/service`,{
+        const response = await fetch(`${API}/api/data/service`,{
           method : "GET"
         });
         if(response.ok){
@@ -56,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, service, authorization_token }}
+      value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, service, authorization_token, API }}
     >
       {children}
     </AuthContext.Provider>

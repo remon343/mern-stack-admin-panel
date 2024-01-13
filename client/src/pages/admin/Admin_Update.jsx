@@ -4,7 +4,7 @@ import { useAuth } from "../../store/auth";
 import { useParams } from "react-router-dom";
 
 const Admin_Update = () => {
-  const { authorization_token } = useAuth();
+  const { authorization_token,API } = useAuth();
   const params = useParams();
   const [profile, setProfile] = useState({
     username: "",
@@ -20,7 +20,7 @@ const Admin_Update = () => {
   const getSingleUserData = async (id) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/admin/user/${params.id}`,
+        `${API}/api/admin/user/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -43,7 +43,7 @@ const Admin_Update = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault();
     try{
-      const res = await fetch(`http://localhost:3000/api/admin/users/edit/${params.id}`,{
+      const res = await fetch(`${API}/api/admin/users/edit/${params.id}`,{
         method : "PUT",
         headers : {
           "Content-Type" : "application/json",
