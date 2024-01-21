@@ -17,7 +17,6 @@ const authMiddleware = async(req,res,next) => {
             throw new Error("Token isnot valid");
         }
         const userData = await User.findOne({email: isVerified.email}).select("-password");
-
         req.user = userData;
         req.token = token;
         req.userId = userData._id;

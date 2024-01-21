@@ -7,10 +7,11 @@ const adminRoute = require('./router/admin-router');
 const cors = require('cors');
 const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
-
+const dotenv = require('dotenv');
+dotenv.config();
 
 const corsOptions = {
-    origin : "http://localhost:5173",
+    origin : process.env.FRONTEND_KEY,
     methods : "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials : true
 }

@@ -27,7 +27,7 @@ const Admin_Users = () => {
 
   const deleteUser = async (id) => {
     try {
-      const res = await fetch(`${API}/api/admin/contacts/delete/${id}`, {
+      const res = await fetch(`${API}/api/admin/users/delete/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: authorization_token,
